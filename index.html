@@ -13,84 +13,94 @@
     </head>
     <!--Parte visível para o usuário-->
     <body>
-    <div class="content">
-        <div class="header-top">
-            <img class="img-logo" src="./logo.png">
-            <span>
-                Controle financeiro
-            </span>
-            <div class="responsive-menu">   
-                <div class="hamburguer-icon">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <dl>
-                        <img class="close-menu" src="./Vector.png">
-                        <dt>Cadastro de transações</dt>
-                        <dt>Limpar dados</dt>
-                        <dt>Salvar no servidor</dt>
-                    </dl> 
-                </div>  
+        <div class="content">
+            <div class="header-top">
+                <img class="img-logo" src="./logo.png">
+                <span class="header-name">
+                    Controle financeiro
+                </span>
+                <div class="responsive-menu">   
+                    <div class="hamburguer-icon">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <dl>
+                            <img class="close-menu" src="./Vector.png">
+                            <dt>Cadastro de transações</dt>
+                            <dt>Limpar dados</dt>
+                            <dt>Salvar no servidor</dt>
+                        </dl> 
+                    </div>  
+                </div>
             </div>
+        </div>  
+        <div class="corpo">
+            <form class="tr">
+                <h3>Nova transação</h3>
+                <div class="diver">
+                    <div class="div1">
+                        
+                        <label for="tr-type">Tipo de transação</label>
+                        <select id="tr-type">
+                            <option value="buy">Compra</option>
+                            <option value="sell">Venda</option>
+                        </select><br> 
+                    </div>
+                    <div class="div1">   
+                        <label for="tr-name">Nome da mercadoria</label>
+                        <input type="text" id="tr-name" placeholder="Input"/><br>
+                    </div>
+                    <div class="div1">  
+                        <label for="tr-value">Valor</label>
+                        <input type="text" id="tr-value" placeholder="R$0,00"><br>
+                    </div>
+                </div>
+                <span class="submit-button"><button class="add-tr" type="submit";>Adicionar transação</button> </span>
+            </form><br>
+            <hr class="line"></hr><br><br>
+            <div class="extrato">
+                <span class="tr-ex">Extrato de transações</span><br>
+                <table class="responsive-table" border="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th style="text-align: start; font-weight: 700;">Mercadoria</th>
+                            <th style="text-align: end; padding-right: 42px; font-weight: 700;">Valor</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td style="padding-left: 10px; border-color: #979797;
+                        border-style: solid;
+                        border-top-width: 1px;">+</td>
+                        <td style=" width: 56.2%; border-top: #979797; border-color: #979797;
+                        border-style: solid;
+                        border-top-width: 1px;">Lorem ipsum dolor sit amet consectetur</td>
+                        <td style="text-align: end; padding-right: 10px; border-color: #979797;
+                        border-style: solid;
+                        border-top-width: 1px;">R$ 12.999,99</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px;">-</td>
+                        <td style=" width: 56.2%;">Quis nostrud exercitation</td>
+                        <td style="text-align: end; padding-right: 10px;">R$ 99,99</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px;">+</td>
+                        <td style=" width: 56.2%;">Lorem ipsum</td>
+                        <td style="text-align: end; padding-right: 10px;">R$ 9,99</td>
+                    </tr>
+                    <tr>
+                        <td class="tota" style="border-bottom: none; border-top: double; border-color: #979797;"></td>
+                        <td class="total">Total</td>
+                        <td class="total-vl">R$ 12.909,99</td>
+                    </tr>
+                </tbody>
+            </table>   
+            <div class="profit">[LUCRO]</div>
         </div>
-
-    </div>    
-    <form class="tr">
-           <label for="tr-type">Tipo de transação</label>
-           <select id="tr-type">
-               <option value="buy">Compra</option>
-               <option value="sell">Venda</option>
-           </select><br>
-           
-        <label for="tr-name">Nome da mercadoria</label>
-        <input type="text" id="tr-name" placeholder="Input"/><br>
-        <label for="tr-value">Valor</label>
-        <input type="text" id="tr-value" placeholder="R$0,00"><br>
-        <button class="add-tr" type="submit">Adicionar transação</button>
-        
-    </form><br>
-    <hr class="line"></hr><br><br>
-    <div class="extrato">
-        <span class="tr-ex">Extrato de transações</span><br>
-        <table class="responsive-table" border="0">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th style="text-align: start; font-weight: 700;">Mercadoria</th>
-                    <th style="text-align: end; padding-right: 42px; font-weight: 700;">Valor</th>
-                </tr>
-            </thead>
-            
-            <tbody>
-                <tr>
-                    <td style="padding-left: 10px; border-color: #979797;
-                    border-style: solid;
-                    border-top-width: 1px;">+</td>
-                    <td style=" width: 56.2%; border-top: #979797; border-color: #979797;
-                    border-style: solid;
-                    border-top-width: 1px;">Lorem ipsum dolor sit amet consectetur</td>
-                    <td style="text-align: end; padding-right: 10px; border-color: #979797;
-                    border-style: solid;
-                    border-top-width: 1px;">R$ 12.999,99</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px;">-</td>
-                    <td style=" width: 56.2%;">Quis nostrud exercitation</td>
-                    <td style="text-align: end; padding-right: 10px;">R$ 99,99</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px;">+</td>
-                    <td style=" width: 56.2%;">Lorem ipsum</td>
-                    <td style="text-align: end; padding-right: 10px;">R$ 9,99</td>
-                </tr>
-                <tr>
-                    <td class="tota" style="border-bottom: none; border-top: double; border-color: #979797;"></td>
-                    <td class="total">Total</td>
-                    <td class="total-vl">R$ 12.909,99</td>
-                </tr>
-            </tbody>
-        </table>   
-        <div class="profit">[LUCRO]</div>
-    </div>
-</body>
+    </div>  
+    </body>
+<footer></footer>
 </html>

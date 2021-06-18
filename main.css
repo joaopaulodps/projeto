@@ -36,7 +36,10 @@ body{
     margin: 3px 0;
     background-color: #333;
     }
-    
+
+    h3{
+        display: none;
+    }
 .responsive-menu dl{
     display: none;
     background-color: #333;
@@ -117,6 +120,7 @@ label{
     border-radius: 4px; 
     border: 0px; 
     height: 32px;
+    width: 100%;
 }
 
 .responsive-menu dl dt:hover{
@@ -225,3 +229,62 @@ td{
     font-size: 10px;
     line-height: 22px;
 }
+
+.div1{
+    display: grid;
+
+}
+
+@media screen and (min-width:768px){
+    .responsive-menu dl{
+        width: 31.8%;
+        }
+
+    h3{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #000;
+        font-size: 18px;
+    }
+    form{
+        display: grid;
+        width: 94.8%;
+        margin-top: 3.71%;
+        bottom: 50%;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 14px;
+        color: #888;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 4px;
+        }
+    
+    .diver{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #tr-name{
+        width: 348px;
+    }
+    #tr-type, #tr-value{
+        width: 150px;
+    }
+
+    .add-tr{
+        float: right;
+        width: 200px;
+        align-content: flex-end;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+    .line{
+        display: none;
+    }
+}
+
