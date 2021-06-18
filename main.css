@@ -288,3 +288,150 @@ td{
     }
 }
 
+@media screen and (min-width:1025px){
+    .content{
+        display: flex;
+        height: 80px;
+        width: 100%;
+    }
+
+    .header-top{
+        align-content: center;
+        justify-content: start;
+        margin-top: 9px;
+    }
+
+    .img-logo{
+        margin-left: 20px;
+        width: 40px;
+        height: 36.84px;
+    }
+
+    .header-top span{
+        width: 411px;
+        height: 43px;
+        margin-left: 20px;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #333333;
+    }
+    .responsive-menu dl{
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        color: #333;
+        position: relative;
+        width: 350px;
+        height:40px;
+        margin-left: 249px;
+        text-align: right;
+        padding-top: 0px;
+    }
+    
+    .responsive-menu dt{
+        border-left: 1px solid #333;
+        text-align: center;
+        align-items: center;
+    }
+    .lines, .close-menu{
+        display:none;
+    }
+    .corpo{
+        display: flex;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 36%;
+        margin-top: 26px;
+        bottom: 50%;
+        margin-left: 20px;
+        font-size: 14px;
+        color: #888;
+    }
+
+    .diver{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        width: 100%;
+        margin: 0%;
+    }
+
+    .div1{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    input{
+        height: 32px;
+        background: #FFFFFF;
+        border: 1px solid #979797;
+        box-sizing: border-box;
+        border-radius: 4px;
+        width: 100%;
+        margin-right: 15px;
+    }
+
+    #tr-type, #tr-value, #tr-name{
+        width: 90.2%;
+        margin-left: 20px;
+    }
+    .submit-button{
+        display: flex;
+    }
+
+    .add-tr{
+        background-color: #333; 
+        color: #fff; 
+        font-size: 14px;
+        border-radius: 4px; 
+        border: 0px; 
+        height: 32px;
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .extrato{
+        margin-top: 26px;
+        width: 652px;
+        margin-left: 0;
+    }
+
+    .tr-ex{
+        margin-top: 21px;
+    }
+
+    label{
+        margin-left: 20px;
+    }
+}
+
+@media screen and (min-width:1100px){
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+    .header-top{
+        max-width: 1100px;
+    }
+
+    .corpo{
+        display: flex;
+        justify-content: center;
+    }
+
+    form{
+        max-width: 400px;
+        margin-left: 0px;
+    }
+    .extrato{
+        max-width: 680px;
+        margin-right: 0px;
+    }
+}
