@@ -15,20 +15,20 @@
     <body>
         <div class="content">
             <div class="header-top">
-                <img class="img-logo" src="./logo.png">
+                <img class="img-logo" src=".//images/logo.png">
                 <span class="header-name">
                     Controle financeiro
                 </span>
-                <div class="responsive-menu">   
-                        <div class="hamburguer-icon">
+                <div class="responsive-menu" id="respMenu">   
+                        <div class="hamburguer-icon" onclick="botaoAbrir()">
                             <div class="lines"></div>
                             <div class="lines"></div>
                             <div class="lines"></div>
                         </div> 
-                    <dl>
-                        <img class="close-menu" src="./Vector.png">
-                        <dt id="no-border">Cadastro de transações</dt>
-                        <dt>Limpar dados</dt>
+                    <dl id="teste">
+                        <img class="close-menu" src="./images/Vector.png" onclick="botaoFechar()">
+                        <dt id="no-border" onclick="addTr()">Cadastro de transações</dt>
+                        <dt onclick="deleteData()">Limpar dados</dt>
                         <dt>Salvar no servidor</dt>
                     </dl>  
                 </div>
@@ -39,68 +39,66 @@
                 <h3>Nova transação</h3>
                 <div class="diver">
                     <div class="div1">
-                        
-                        <label for="tr-type">Tipo de transação</label>
-                        <select id="tr-type">
-                            <option value="buy">Compra</option>
-                            <option value="sell">Venda</option>
-                        </select><br> 
+                        <label for="tipoTransacao" >Tipo de transação</label>
+                        <span id="erroTipo"></span>  
+                        <select id="tipoTransacao" onclick="getElementById('erroTipo').innerHTML = ''">
+                              <option disabled selected value="selecione">Selecione</option>
+                              <option value="-">Compra</option>
+                              <option value="+">Venda</option>
+                            </select><br> 
                     </div>
                     <div class="div1">   
-                        <label for="tr-name">Nome da mercadoria</label>
-                        <input type="text" id="tr-name" placeholder="Input"/><br>
+                        <label for="nomeMercadoria">Nome da mercadoria</label><span id="erroNome"></span>
+                        <input type="text" id="nomeMercadoria" placeholder="Input" onkeypress="getElementById('erroNome').innerHTML = ''"/><br>
                     </div>
                     <div class="div1">  
-                        <label for="tr-value">Valor</label>
-                        <input type="text" id="tr-value" placeholder="R$0,00"><br>
+                        <label for="valorMercadoria">Valor</label><span id="erroValor" ></span>
+                        <input type="text" id="valorMercadoria" placeholder="R$0,00" maxlength="10"
+                        onkeyup="formatarMoeda()" onkeypress="getElementById('erroValor').innerHTML = ''"/><br>
                     </div>
                 </div>
-                <span class="submit-button"><button class="add-tr" type="submit";>Adicionar transação</button> </span>
+                <span class="submit-button">
+                    <button class="add-tr" type="button" onclick="validarForm()" >Adicionar transação</button>
+                 </span>
             </form><br>
             <hr class="line"></hr><br><br>
-            <div class="extrato">
+            <div class="extrato" id="extrato">
                 <span class="tr-ex">Extrato de transações</span><br>
-                <table class="responsive-table" border="0">
-                    <thead>
+                <table class="responsive-table" border="0" id="table1">
+                    <thead >
                         <tr>
-                            <th></th>
-                            <th style="text-align: start; font-weight: 700;">Mercadoria</th>
-                            <th style="text-align: end; padding-right: 42px; font-weight: 700;">Valor</th>
+                            <td></td>
+                            <td style="text-align: start; font-weight: 700;">Mercadoria</td>
+                            <td style="text-align: end; padding-right: 42px; font-weight: 700;">Valor</td>
                         </tr>
                     </thead>
                     
-                    <tbody>
+                    <tbody id="table">
                         <tr>
                             <td style="padding-left: 10px; border-color: #979797;
                         border-style: solid;
-                        border-top-width: 1px;">+</td>
+                        border-top-width: 1px;" id="a"></td>
                         <td style=" width: 56.2%; border-top: #979797; border-color: #979797;
                         border-style: solid;
-                        border-top-width: 1px;">Lorem ipsum dolor sit amet consectetur</td>
+                        border-top-width: 1px; text-align: center; font-weight: bold;" id="respMercadoria">Nenhuma transação cadastrada</td>
                         <td style="text-align: end; padding-right: 10px; border-color: #979797;
                         border-style: solid;
-                        border-top-width: 1px;">R$ 12.999,99</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-left: 10px;">-</td>
-                        <td style=" width: 56.2%;">Quis nostrud exercitation</td>
-                        <td style="text-align: end; padding-right: 10px;">R$ 99,99</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-left: 10px;">+</td>
-                        <td style=" width: 56.2%;">Lorem ipsum</td>
-                        <td style="text-align: end; padding-right: 10px;">R$ 9,99</td>
-                    </tr>
-                    <tr>
-                        <td class="tota" style="border-bottom: none; border-top: double; border-color: #979797;"></td>
-                        <td class="total">Total</td>
-                        <td class="total-vl">R$ 12.909,99</td>
-                    </tr>
+                        border-top-width: 1px;" id="respValor"></td>
+                        </tr>
+                    <tfoot>
+                        <tr>
+
+                            <td class="tota" style="border-bottom: none; border-top: double; border-color: #979797;"></td>
+                            <td class="total">Total</td>
+                            <td class="totalvl" id="totalvl"></td>
+                        </tr>
+                    </tfoot>
                 </tbody>
             </table>   
-            <div class="profit">[LUCRO]</div>
+            <div class="profit" id="profit"></div>
         </div>
-    </div>  
+    </div> 
+    <script type="text/javascript" src="./script.js"></script> 
 </body>
 <footer></footer>
 </html>
