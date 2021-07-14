@@ -141,7 +141,7 @@ function somarProdutos(){
 
 //inserir dados no servidor
 function inserirDados(){
-var produtoserv = localStorage.getItem('prods')
+var produtoserv = JSON.stringify(localStorage.getItem('prods'))
 
   fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
     method: "POST",
@@ -157,11 +157,13 @@ var produtoserv = localStorage.getItem('prods')
       }
     })
   })}
+var idAluno = "rec6W32b2jnrrqxI9"
 
+//atualizar dados no servidor
 function atualizarDados(){
-  var produtoserv = localStorage.getItem('prods')
+  var produtoserv = JSON.stringify(localStorage.getItem('prods'))
 
-  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/recC9Ro9POMWLkDVB", {
+  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/", {
     method: "PATCH",
     headers: {
       Authorization: "Bearer key2CwkHb0CKumjuM",
@@ -169,21 +171,23 @@ function atualizarDados(){
     },
     
     body: JSON.stringify({
-      "fields": {
-        "Aluno": "2670",
-        "Json": produtoserv
-      }
+      "records": [
+        {
+          "id": idAluno,
+          "fields": {
+            "Aluno": "2670",
+            "Json": produtoserv }
+
+        },
+      ]
     })
   })
 }
 
-function botaoServidor(){
-  var atlz = "https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/recC9Ro9POMWLkDVB"
-
-  if(atlz){
-    atualizarDados()
-  }else  {
-    atualizarDados()
-  }
-  alert("SALVO NO SERVIDOR")
+function selectFunction(){
+    if(idAluno == ''){
+      inserirDados()
+    } else{
+      atualizarDados()
+    }
 }
