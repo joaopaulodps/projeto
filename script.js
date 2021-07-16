@@ -130,64 +130,67 @@ function somarProdutos(){
 
   if(total1 > 0){
     document.getElementById("profit").innerHTML = "[LUCRO]"
-    } 
-    if(total1 < 0){
-    document.getElementById("profit").innerHTML = "[PREJUÍZO]"
-    } 
-    if(total1 == 0){
-      document.getElementById("profit").innerHTML = ""
-      } 
+  } 
+  if(total1 < 0){
+   document.getElementById("profit").innerHTML = "[PREJUÍZO]"
+  } 
+  if(total1 == 0){
+    document.getElementById("profit").innerHTML = ""
+  } 
+}
+
+var aljson = []
+  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico?maxRecords=&view=Grid%20view", {
+    headers: {
+      Authorization: "Bearer key2CwkHb0CKumjuM"
     }
+  }).then((resp) =>{
+    resp.json().then((data)=> aljson = data)
+    return aljson
+  })
 
-//inserir dados no servidor
-function inserirDados(){
-var produtoserv = JSON.stringify(localStorage.getItem('prods'))
-
+var prodserv = JSON.stringify(localStorage.getItem('prods'))
+/*function salvarServidor(){
   fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
     method: "POST",
     headers: {
       Authorization: "Bearer key2CwkHb0CKumjuM",
-      "Content-Type": "application/json"
-    },
-    
+      "Content-Type": "application/json" 
+     },
     body: JSON.stringify({
-      "fields": {
-        "Aluno": "2670",
-        "Json": produtoserv
-      }
-    })
-  })}
-var idAluno = "rec6W32b2jnrrqxI9"
+      "records": [
+         {
+           "fields": {
+             "Aluno": "2670",
+             "Json": prodserv}
+         }
+      ],
+       "typecast": true
+     })
+   }
+ )
+}*/
 
-//atualizar dados no servidor
-function atualizarDados(){
-  var produtoserv = JSON.stringify(localStorage.getItem('prods'))
-
-  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/", {
+var idAluno1 = "recAqeBq0pBCXpaAk"
+function atualizarServidor(){
+  fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
     method: "PATCH",
     headers: {
       Authorization: "Bearer key2CwkHb0CKumjuM",
-      "Content-Type": "application/json"
-    },
-    
+      "Content-Type": "application/json" 
+     },
     body: JSON.stringify({
       "records": [
-        {
-          "id": idAluno,
-          "fields": {
-            "Aluno": "2670",
-            "Json": produtoserv }
+         {
+           "id": idAluno1 ,
+           "fields": {
+             "Aluno": "2670",
+             "Json": prodserv}
+         }
+      ],
 
-        },
-      ]
-    })
-  })
+     })
+   }
+ )
 }
 
-function selectFunction(){
-    if(idAluno == ''){
-      inserirDados()
-    } else{
-      atualizarDados()
-    }
-}
